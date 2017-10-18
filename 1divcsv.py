@@ -5,6 +5,7 @@ import sys
 
 if len(sys.argv) < 3:
     print('csv input and output file names, respectively, must be provided!')
+    sys.exit(1)
 
 infile = sys.argv[1]
 outfile = sys.argv[2]
@@ -19,6 +20,6 @@ try:
                 for row in csvreader:
                     csvwriter.writerow([(1/float(x)) if float(x) > sys.float_info.epsilon else math.inf for x in row])
         except IOError:
-            print('Failed to open file for writing:', outfile)
+            print('Failed to open file for writing:', outfile, file=sys.stderr)
 except IOError:
-    print('Failed to read', infile)
+    print('Failed to read', infile, file=sys.stderr)
