@@ -1,5 +1,7 @@
 # Performs agglomerative hierarchical clustering on an input matrix.
 # Arg 1: input file name
+# Arg 2: number of clusters
+# Arg 3: linkage method to use in agglomerative clustering (ward, complete, or average)
 import sys
 from sklearn.cluster import AgglomerativeClustering
 from util import csv_to_matrix, replace_inf, print_list
