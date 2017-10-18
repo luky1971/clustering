@@ -4,7 +4,7 @@
 # Arg 3: value for DBSCAN's min_samples parameter
 import sys
 from sklearn.cluster import DBSCAN
-from util import csv_to_matrix, replace_inf
+from util import csv_to_matrix, replace_inf, print_list
 
 if len(sys.argv) < 2:
     print('csv input file name must be provided!')
@@ -21,13 +21,10 @@ if len(sys.argv) > 3:
     min_samples = int(sys.argv[3])
 
 # load the distance matrix
-distances = csv_to_matrix(infile)
+x = replace_inf(csv_to_matrix(infile))
 
-if distances is not None:
-    # replace infinity values with max float
-    x = replace_inf(distances)
+if x is not None:
     # cluster
     y = DBSCAN(eps=eps, min_samples=min_samples, metric='precomputed').fit_predict(x)
     # print cluster labels
-    for i in range(len(y)):
-        print(i, y[i])
+    print_list(y)
