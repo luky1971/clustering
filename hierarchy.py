@@ -1,4 +1,4 @@
-# Performs agglomerative hierarchical clustering on an input matrix.
+# Performs agglomerative hierarchical clustering on an input affinity matrix.
 # Arg 1: input file name
 # Arg 2: number of clusters
 # Arg 3: linkage method to use in agglomerative clustering (ward, complete, or average)
