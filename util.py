@@ -34,9 +34,29 @@ def replace_inf(mat):
     return ret
 
 
+def cum_dist(vals):
+    """
+    Returns a dict that is a mapping of value -> percent of instances in vals <= value
+    """
+    cumdist = {}
+    sorted_vals = sorted(vals)
+    n = len(sorted_vals)
+    for i in range(n):
+        cumdist[int(sorted_vals[i])] = (i+1) / n
+    return cumdist
+
+
 def print_list(in_list, file=sys.stdout):
     """
     Prints the given list as rows of index value
     """
     for index, elem in enumerate(in_list):
         print(index, elem, file=file)
+
+
+def print_sorted_dict(dict):
+    """
+    Prints the key-value pairs in dict after sorting it by key
+    """
+    for key in sorted(dict.keys()):
+        print(key, dict[key])
