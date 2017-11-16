@@ -1,4 +1,4 @@
-# Performs affinity propagation clustering on an input affinity matrix.
+# Performs spectral clustering on an input affinity matrix.
 # Arg 1: input file name
 # Arg 2: number of clusters
 # Arg 3: strategy used to assign embedding space labels, ‘kmeans’ or ‘discretize’
